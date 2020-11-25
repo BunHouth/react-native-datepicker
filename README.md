@@ -44,6 +44,7 @@ export default class MyDatePicker extends Component {
         maxDate="2016-06-01"
         confirmBtnText="Confirm"
         cancelBtnText="Cancel"
+        iOSMode="spinner"
         customStyles={{
           dateIcon: {
             position: 'absolute',
@@ -73,6 +74,7 @@ You can check [index.js](https://github.com/xgfe/react-native-datepicker/blob/ma
 | date | - | <code>string &#124; date &#124; Moment instance</code> | Specify the display date of DatePicker. `string` type value must match the specified format |
 | mode | 'date' | `enum` | The `enum` of `date`, `datetime` and `time` |
 | androidMode | 'default' | `enum` | The `enum` of `default`, `calendar` and `spinner` (only Android) |
+| iOSMode | 'spinner' | `enum` | The `enum` of `default`, `compact`, `inline` and `spinner` (only IOS) |
 | format | 'YYYY-MM-DD' | `string` | Specify the display format of the date, which using [moment.js](http://momentjs.com/). The default value change according to the mode. |
 | confirmBtnText | '确定' | `string` | Specify the text of confirm btn in ios. |
 | cancelBtnText | '取消' | `string` | Specify the text of cancel btn in ios. |

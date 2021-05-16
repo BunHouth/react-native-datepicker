@@ -71,11 +71,11 @@ You can check [index.js](https://github.com/xgfe/react-native-datepicker/blob/ma
 | Prop  | Default  | Type | Description |
 | :------------ |:---------------:| :---------------:| :-----|
 | style | - | `object` | Specify the style of the DatePicker, eg. width, height...  |
-| date | - | <code>string &#124; date &#124; Moment instance</code> | Specify the display date of DatePicker. `string` type value must match the specified format |
+| date | - | <code>string &#124; date &#124; Dayjs instance</code> | Specify the display date of DatePicker. `string` type value must match the specified format |
 | mode | 'date' | `enum` | The `enum` of `date`, `datetime` and `time` |
 | androidMode | 'default' | `enum` | The `enum` of `default`, `calendar` and `spinner` (only Android) |
 | iOSMode | 'spinner' | `enum` | The `enum` of `default`, `compact`, `inline` and `spinner` (only IOS) |
-| format | 'YYYY-MM-DD' | `string` | Specify the display format of the date, which using [moment.js](http://momentjs.com/). The default value change according to the mode. |
+| format | 'YYYY-MM-DD' | `string` | Specify the display format of the date, which using [day.js](https://day.js.org/). The default value change according to the mode. |
 | confirmBtnText | '确定' | `string` | Specify the text of confirm btn in ios. |
 | cancelBtnText | '取消' | `string` | Specify the text of cancel btn in ios. |
 | iconSource | - | <code>{uri: string} &#124; number</code> | Specify the icon. Same as the `source` of Image, always using `require()` |
@@ -90,7 +90,7 @@ You can check [index.js](https://github.com/xgfe/react-native-datepicker/blob/ma
 | is24Hour | - | `boolean` | Set the TimePicker is24Hour flag. The default value depend on `format`. Only work in Android |
 | allowFontScaling | true | `boolean` | Set to false to disable font scaling for every text component |
 | placeholder | '' | `string` | The placeholder show when this.props.date is falsy |
-| onDateChange | - | `function` | This is called when the user confirm the picked date or time in the UI. The first and only argument is a date or time string representing the new date and time formatted by [moment.js](http://momentjs.com/) with the given format property. |
+| onDateChange | - | `function` | This is called when the user confirm the picked date or time in the UI. The first and only argument is a date or time string representing the new date and time formatted by [day.js](https://day.js.org/) with the given format property. |
 | onOpenModal | - | `function` | This is called when the DatePicker Modal open. |
 | onCloseModal | - | `function` | This is called when the DatePicker Modal close |
 | onPressMask | - | `function` | This is called when clicking the ios modal mask |

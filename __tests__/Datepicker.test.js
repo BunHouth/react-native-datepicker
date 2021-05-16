@@ -2,7 +2,7 @@ import React from 'react';
 import {Platform, Animated, DatePickerAndroid, Modal, View} from 'react-native';
 import Enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Moment from 'moment';
+import dayjs from 'dayjs';
 import DatePicker from '../datepicker.js';
 
 Enzyme.configure({adapter: new Adapter()});
@@ -57,7 +57,7 @@ describe('DatePicker', () => {
     expect(datePicker1.props.showIcon).toEqual(false);
     expect(datePicker1.props.disabled).toEqual(true);
 
-    expect(wrapper1.state('date')).toMatchObject(Moment('2016-05-11', 'YYYY-MM-DD').toDate());
+    expect(wrapper1.state('date')).toMatchObject(dayjs('2016-05-11', 'YYYY-MM-DD').toDate());
     expect(datePicker1._renderIcon()).toEqual(null);
 
     // find not work with mount, and defaultProps not work with shallow...
@@ -83,7 +83,7 @@ describe('DatePicker', () => {
 
     datePicker.onPressConfirm();
 
-    expect(dateStr).toEqual(Moment().format('YYYY-MM-DD'));
+    expect(dateStr).toEqual(dayjs().format('YYYY-MM-DD'));
   });
 
   it('default selected Date with minDate and maxDate', () => {
@@ -118,7 +118,7 @@ describe('DatePicker', () => {
 
     datePickerNormal.onPressConfirm();
 
-    expect(dateStrNormal).toEqual(Moment().format('YYYY-MM-DD'));
+    expect(dateStrNormal).toEqual(dayjs().format('YYYY-MM-DD'));
   });
 
   it('setModalVisible', () => {
@@ -187,8 +187,8 @@ describe('DatePicker', () => {
     const wrapper = shallow(<DatePicker date="2016-06-04"/>);
     const datePicker = wrapper.instance();
 
-    expect(datePicker.getDate()).toMatchObject(Moment('2016-06-04', 'YYYY-MM-DD').toDate());
-    expect(datePicker.getDate('2016-06-06')).toMatchObject(Moment('2016-06-06', 'YYYY-MM-DD').toDate());
+    expect(datePicker.getDate()).toMatchObject(dayjs('2016-06-04', 'YYYY-MM-DD').toDate());
+    expect(datePicker.getDate('2016-06-06')).toMatchObject(dayjs('2016-06-06', 'YYYY-MM-DD').toDate());
 
     const date = new Date();
     expect(datePicker.getDate(date)).toEqual(date);

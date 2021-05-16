@@ -1,6 +1,6 @@
 {
   "name": "react-native-datepicker-reborn",
-  "version": "1.7.5",
+  "version": "1.7.6",
   "description": "React Native DatePicker component for both Android and iOS, useing DatePickerAndroid, TimePickerAndroid and DatePickerIOS",
   "main": "datepicker.js",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/bunhouth/react-native-datepicker#readme",
   "dependencies": {
-    "moment": "2.24.0"
+    "dayjs": "^1.10.4"
   },
   "devDependencies": {
     "babel-core": "6.26.3",

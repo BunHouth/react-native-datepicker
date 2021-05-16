@@ -11,7 +11,7 @@ import {
   Keyboard,
 } from 'react-native';
 import Style from './style';
-import Moment from 'moment';
+import dayjs from 'dayjs';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 
 const FORMATS = {
@@ -160,7 +160,7 @@ class DatePicker extends Component {
       return date;
     }
 
-    return Moment(date, format).toDate();
+    return dayjs(date, format).toDate();
   }
 
   getDateStr(date = this.props.date) {
@@ -172,7 +172,7 @@ class DatePicker extends Component {
       return this.props.getDateStr(dateInstance);
     }
 
-    return Moment(dateInstance).format(format);
+    return dayjs(dateInstance).format(format);
   }
 
   datePicked() {
@@ -208,7 +208,7 @@ class DatePicker extends Component {
   onDateChange(event, date) {
     this.setState({
       allowPointerEvents: false,
-      date: Moment(date).toDate(),
+      date: dayjs(date).toDate(),
     });
     const timeoutId = setTimeout(() => {
       this.setState({
@@ -224,7 +224,7 @@ class DatePicker extends Component {
       this.onPressCancel();
     } else {
       this.setState({
-        date: Moment(date).toDate(),
+        date: dayjs(date).toDate(),
       });
       this.datePicked();
     }
@@ -236,7 +236,7 @@ class DatePicker extends Component {
       this.onPressCancel();
     } else {
       this.setState({
-        date: Moment(date).toDate(),
+        date: dayjs(date).toDate(),
       });
       this.datePicked();
     }
@@ -250,8 +250,8 @@ class DatePicker extends Component {
       is24Hour = !format.match(/h|a/),
     } = this.props;
 
-    const newDate = Moment(date);
-    const oldDate = Moment(this.state.date);
+    const newDate = dayjs(date);
+    const oldDate = dayjs(this.state.date);
     newDate.hours(oldDate.hours());
     newDate.minutes(oldDate.minutes());
     newDate.seconds(oldDate.seconds());
@@ -269,8 +269,8 @@ class DatePicker extends Component {
   }
 
   onDatetimeTimePicked(event, date) {
-    const newDate = Moment(date);
-    const dateToSave = Moment(this.state.date);
+    const newDate = dayjs(date);
+    const dateToSave = dayjs(this.state.date);
     dateToSave.hours(newDate.hours());
     dateToSave.minutes(newDate.minutes());
     dateToSave.seconds(newDate.seconds());
@@ -416,7 +416,7 @@ class DatePicker extends Component {
                           this.state.allowPointerEvents ? 'auto' : 'none'
                         }>
                         <RNDateTimePicker
-                          value={Moment(this.state.date).toDate()}
+                          value={dayjs(this.state.date).toDate()}
                           mode={mode}
                           minimumDate={minDate && this.getDate(minDate)}
                           maximumDate={maxDate && this.getDate(maxDate)}
@@ -484,7 +484,7 @@ class DatePicker extends Component {
                 is24Hour={is24Hour}
                 minimumDate={minDate && this.getDate(minDate)}
                 maximumDate={maxDate && this.getDate(maxDate)}
-                value={Moment(this.state.date).toDate()}
+                value={dayjs(this.state.date).toDate()}
                 onChange={this.onDatePicked}
               />
             )}
@@ -496,7 +496,7 @@ class DatePicker extends Component {
                 mode="time"
                 display={androidMode}
                 is24Hour={is24Hour}
-                value={Moment(this.state.date).toDate()}
+                value={dayjs(this.state.date).toDate()}
                 onChange={this.onTimePicked}
               />
             )}
@@ -509,7 +509,7 @@ class DatePicker extends Component {
                 display={androidMode}
                 minimumDate={minDate && this.getDate(minDate)}
                 maximumDate={maxDate && this.getDate(maxDate)}
-                value={Moment(this.state.date).toDate()}
+                value={dayjs(this.state.date).toDate()}
                 onChange={this.onDatetimePicked}
               />
             )}
@@ -520,7 +520,7 @@ class DatePicker extends Component {
                 mode="time"
                 display={androidMode}
                 is24Hour={is24Hour}
-                value={Moment(this.state.date).toDate()}
+                value={dayjs(this.state.date).toDate()}
                 onChange={this.onDatetimeTimePicked}
               />
             )}
